@@ -7,4 +7,5 @@ public interface IOrderService
     Task<List<Product>> GetAvailableProductsAsync();
     Task<Order> CreateOrderAsync(List<OrderItem> items);
     Task<Order> CompleteOrderAsync(string orderId);
+    Task<Order?> GetOrderByIdAsync(string id);
 }

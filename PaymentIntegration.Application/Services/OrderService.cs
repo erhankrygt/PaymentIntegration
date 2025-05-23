@@ -103,4 +103,9 @@ public class OrderService(
             throw new BalanceManagementException("Failed to complete order", ex);
         }
     }
+    
+    public async Task<Order?> GetOrderByIdAsync(string id)
+    {
+        return await orderRepository.GetByIdAsync(id);
+    }
 }
