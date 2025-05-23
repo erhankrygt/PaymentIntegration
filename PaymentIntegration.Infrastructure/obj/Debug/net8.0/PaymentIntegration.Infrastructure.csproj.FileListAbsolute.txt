@@ -1,0 +1,16 @@
+/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/obj/Debug/net8.0/PaymentIntegration.Infrastructure.csproj.AssemblyReference.cache
+/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/obj/Debug/net8.0/PaymentIntegration.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/obj/Debug/net8.0/PaymentIntegration.Infrastructure.AssemblyInfoInputs.cache
+/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/obj/Debug/net8.0/PaymentIntegration.Infrastructure.AssemblyInfo.cs
+/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/obj/Debug/net8.0/PaymentIntegration.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/obj/Debug/net8.0/PaymentIntegration.Infrastructure.sourcelink.json
+/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/bin/Debug/net8.0/PaymentIntegration.Infrastructure.deps.json
+/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/bin/Debug/net8.0/PaymentIntegration.Infrastructure.dll
+/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/bin/Debug/net8.0/PaymentIntegration.Infrastructure.pdb
+/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/bin/Debug/net8.0/PaymentIntegration.Domain.dll
+/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/bin/Debug/net8.0/PaymentIntegration.Domain.pdb
+/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/obj/Debug/net8.0/PaymentI.D338A7FF.Up2Date
+/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/obj/Debug/net8.0/PaymentIntegration.Infrastructure.dll
+/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/obj/Debug/net8.0/refint/PaymentIntegration.Infrastructure.dll
+/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/obj/Debug/net8.0/PaymentIntegration.Infrastructure.pdb
+/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/obj/Debug/net8.0/ref/PaymentIntegration.Infrastructure.dll
