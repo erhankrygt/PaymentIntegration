@@ -14,7 +14,6 @@ public class AuthControllerIntegrationTests : IClassFixture<CustomWebApplication
 
     public AuthControllerIntegrationTests(CustomWebApplicationFactory factory)
     {
-        // CreateClient allows making requests to the test server
         _client = factory.CreateClient();
     }
 
