@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PaymentIntegration.Application.Interfaces;
 using PaymentIntegration.Domain.Exceptions;
@@ -6,6 +7,7 @@ using PaymentIntegration.Domain.Models;
 namespace PaymentIntegration.Api.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/[controller]")]
 public class ProductsController(IOrderService orderService) : ControllerBase
 {

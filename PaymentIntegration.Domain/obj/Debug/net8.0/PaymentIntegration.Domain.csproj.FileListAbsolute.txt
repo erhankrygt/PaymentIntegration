@@ -1,6 +1,7 @@
 /Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Domain/bin/Debug/net8.0/PaymentIntegration.Domain.deps.json
 /Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Domain/bin/Debug/net8.0/PaymentIntegration.Domain.dll
 /Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Domain/bin/Debug/net8.0/PaymentIntegration.Domain.pdb
+/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Domain/obj/Debug/net8.0/PaymentIntegration.Domain.csproj.AssemblyReference.cache
 /Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Domain/obj/Debug/net8.0/PaymentIntegration.Domain.GeneratedMSBuildEditorConfig.editorconfig
 /Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Domain/obj/Debug/net8.0/PaymentIntegration.Domain.AssemblyInfoInputs.cache
 /Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Domain/obj/Debug/net8.0/PaymentIntegration.Domain.AssemblyInfo.cs
@@ -10,4 +11,3 @@
 /Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Domain/obj/Debug/net8.0/refint/PaymentIntegration.Domain.dll
 /Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Domain/obj/Debug/net8.0/PaymentIntegration.Domain.pdb
 /Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Domain/obj/Debug/net8.0/ref/PaymentIntegration.Domain.dll
-/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Domain/obj/Debug/net8.0/PaymentIntegration.Domain.csproj.AssemblyReference.cache

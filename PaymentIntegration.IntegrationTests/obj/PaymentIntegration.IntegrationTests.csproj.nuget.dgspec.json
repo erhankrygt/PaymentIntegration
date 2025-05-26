@@ -4,6 +4,152 @@
     "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.IntegrationTests/PaymentIntegration.IntegrationTests.csproj": {}
   },
   "projects": {
+    "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Api/PaymentIntegration.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Api/PaymentIntegration.Api.csproj",
+        "projectName": "PaymentIntegration.Api",
+        "projectPath": "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Api/PaymentIntegration.Api.csproj",
+        "packagesPath": "/Users/erhankarayigit/.nuget/packages/",
+        "outputPath": "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Api/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/erhankarayigit/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Application/PaymentIntegration.Application.csproj": {
+                "projectPath": "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Application/PaymentIntegration.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[8.0.16, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.6.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/9.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Application/PaymentIntegration.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Application/PaymentIntegration.Application.csproj",
+        "projectName": "PaymentIntegration.Application",
+        "projectPath": "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Application/PaymentIntegration.Application.csproj",
+        "packagesPath": "/Users/erhankarayigit/.nuget/packages/",
+        "outputPath": "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/erhankarayigit/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Domain/PaymentIntegration.Domain.csproj": {
+                "projectPath": "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Domain/PaymentIntegration.Domain.csproj"
+              },
+              "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/PaymentIntegration.Infrastructure.csproj": {
+                "projectPath": "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Infrastructure/PaymentIntegration.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/9.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Domain/PaymentIntegration.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -180,6 +326,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Api/PaymentIntegration.Api.csproj": {
+                "projectPath": "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Api/PaymentIntegration.Api.csproj"
+              },
               "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Domain/PaymentIntegration.Domain.csproj": {
                 "projectPath": "/Users/erhankarayigit/Desktop/workspaces/PaymentIntegration/PaymentIntegration.Domain/PaymentIntegration.Domain.csproj"
               },
@@ -211,7 +360,7 @@
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[17.9.0, )"
+              "version": "[17.8.0, )"
             },
             "Moq": {
               "target": "Package",
@@ -222,16 +371,20 @@
               "version": "[9.0.5, )"
             },
             "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.0, )"
             },
             "xunit": {
               "target": "Package",
-              "version": "[2.5.3, )"
+              "version": "[2.6.6, )"
             },
             "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[2.5.3, )"
+              "version": "[2.5.6, )"
             }
           },
           "imports": [

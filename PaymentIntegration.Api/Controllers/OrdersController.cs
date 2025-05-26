@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PaymentIntegration.Api.Models.Requests;
 using PaymentIntegration.Application.Interfaces;
@@ -7,6 +8,7 @@ using PaymentIntegration.Domain.Models;
 namespace PaymentIntegration.Api.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/orders")]
 public class OrdersController(IOrderService orderService, ILogger<OrdersController> logger)
     : ControllerBase

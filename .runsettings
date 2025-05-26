@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors EnableCollect="True">
+      <DataCollector friendlyName="Xunit.Net Runtime Information" uri="xunit://xunit.github.io/v3/collector/DataCollector" assemblyQualifiedName="Xunit.Runner.System.Extension.DataCollection.XunitNetDataCollector, xunit.runner.system, Version=3.0.0.0, Culture=neutral, PublicKeyToken=ecd8184707f0f7d3" />
+    </DataCollectors>
+  </DataCollectionRunSettings>
+  <RunConfiguration>
+    <!-- Disable shadow copying -->
+    <DisableAppDomain>True</DisableAppDomain>
+  </RunConfiguration>
+</RunSettings> 
