@@ -10,9 +10,10 @@ namespace PaymentIntegration.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            var url = new Uri(configuration["BalanceManagement:BaseUrl"] ?? string.Empty);
             services.AddHttpClient<IBalanceManagementClient, BalanceManagementClient>(client =>
             {
-                client.BaseAddress = new Uri(configuration["BalanceManagement:BaseUrl"] ?? string.Empty);
+                client.BaseAddress = url;
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
             });
 

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using PaymentIntegration.Api.Models.Requests;
 using PaymentIntegration.Application.Interfaces;
 using PaymentIntegration.Domain.Exceptions;
 using PaymentIntegration.Domain.Models;
@@ -15,8 +16,8 @@ public class OrdersController(IOrderService orderService, ILogger<OrdersControll
     {
         try
         {
-            var order = await orderService.CreateOrderAsync(request.Items);
-            return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, order);
+            var order = await orderService.CreateOrderAsync(request.Amount, request.OrderId);
+            return Ok(order);
         }
         catch (OrderException ex)
         {
@@ -55,16 +56,4 @@ public class OrdersController(IOrderService orderService, ILogger<OrdersControll
             });
         }
     }
-
-    [HttpGet("{id}")]
-    public async Task<ActionResult<Order>> GetOrder(string id)
-    {
-        var order = await orderService.GetOrderByIdAsync(id);
-        if (order == null)
-            return NotFound();
-        
-        return Ok(order);
-    }
 }
-
-public record CreateOrderRequest(List<OrderItem> Items);

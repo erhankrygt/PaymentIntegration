@@ -2,11 +2,11 @@ using PaymentIntegration.Domain.Enums;
 
 namespace PaymentIntegration.Domain.Models;
 
-public class Order
+public class Order : BaseEntity
 {
-    public string Id { get; set; }
-    public DateTime CreatedAt { get; set; }
-    public OrderStatus Status { get; set; }
-    public List<OrderItem> Items { get; set; } = new();
-    public decimal TotalAmount { get; set; }
+    public int Status { get; set; }
+    public decimal Amount { get; set; }
+    public string? OrderId { get; set; }
+    public DateTime? CompletedAt { get; set; }
+    public DateTime? CanceledAt { get; set; }
 }

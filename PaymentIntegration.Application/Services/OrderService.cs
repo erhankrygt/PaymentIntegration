@@ -14,11 +14,23 @@ public class OrderService(
     ILogger<OrderService> logger)
     : IOrderService
 {
-    public async Task<List<Product>> GetAvailableProductsAsync()
+    public async Task<List<Product>?> GetAvailableProductsAsync()
     {
         try
         {
-            return await balanceManagementClient.GetProductsAsync();
+            var response = await balanceManagementClient.GetProductsAsync();
+            var products = response?.Items
+                .Select(item => new Product
+                {
+                    Name = item.Name,
+                    Price = item.Price,
+                    Stock = item.Stock,
+                    Category = item.Category,
+                    Currency = item.Currency
+                })
+                .ToList();
+
+            return products;
         }
         catch (Exception ex)
         {
@@ -27,56 +39,36 @@ public class OrderService(
         }
     }
 
-    public async Task<Order> CreateOrderAsync(List<OrderItem> items)
+    public async Task<Order> CreateOrderAsync(decimal amount, string orderId)
     {
-        if (items == null || items.Count == 0)
-            throw new OrderException("Order must contain at least one item");
-
-        // Get product prices and validate
-        var products = await balanceManagementClient.GetProductsAsync();
-        var productDict = products.ToDictionary(p => p.Id);
-
-        foreach (var item in items)
-        {
-            if (!productDict.TryGetValue(item.ProductId, out var product))
-                throw new OrderException($"Product {item.ProductId} not found");
-
-            if (item.Quantity <= 0)
-                throw new OrderException($"Invalid quantity for product {item.ProductId}");
-
-            if (product.Stock < item.Quantity)
-                throw new OrderException($"Insufficient stock for product {item.ProductId}");
-
-            item.ProductName = product.Name;
-            item.UnitPrice = product.Price;
-        }
-
-        var totalAmount = items.Sum(i => i.Quantity * i.UnitPrice);
-
-        // Reserve funds
-        string transactionId;
         try
         {
-            transactionId = await balanceManagementClient.CreatePreorderAsync(totalAmount);
+            var transactionId = Guid.NewGuid().ToString();
+            var result = await balanceManagementClient.CreatePreorderAsync(amount, orderId);
+            var or = result.Data.PreOrder;
+
+            var order = new Order()
+            {
+                OrderId = or.OrderId,
+                Amount = or.Amount,
+                CanceledAt = or.CancelledAt,
+                CompletedAt = or.CompletedAt,
+                CreatedAt = DateTime.Now,
+                IsDeleted = false,
+                Status = (int)OrderStatus.Created
+            };
+
+           await orderRepository.AddAsync(order);
+            
+            logger.LogInformation("Created order {OrderId} with transaction {TransactionId}", order.OrderId,
+                transactionId);
+            return order;
         }
         catch (Exception ex)
         {
             logger.LogError(ex, "Failed to create preorder in Balance Management");
             throw new BalanceManagementException("Failed to reserve funds", ex);
         }
-
-        // Create order
-        var order = new Order
-        {
-            Items = items,
-            TotalAmount = totalAmount,
-            Status = OrderStatus.FundsReserved
-        };
-
-        order = await orderRepository.AddAsync(order);
-        logger.LogInformation("Created order {OrderId} with transaction {TransactionId}", order.Id, transactionId);
-
-        return order;
     }
 
     public async Task<Order> CompleteOrderAsync(string orderId)
@@ -84,14 +76,11 @@ public class OrderService(
         var order = await orderRepository.GetByIdAsync(orderId);
         if (order == null)
             throw new OrderException($"Order {orderId} not found");
-
-        if (order.Status != OrderStatus.FundsReserved)
-            throw new OrderException($"Order {orderId} is not in a state that can be completed");
-
+        
         try
         {
             await balanceManagementClient.CompleteOrderAsync(orderId);
-            order.Status = OrderStatus.Completed;
+            order.Status = (int)OrderStatus.Completed;
             await orderRepository.UpdateAsync(order);
 
             logger.LogInformation("Completed order {OrderId}", orderId);
@@ -103,7 +92,7 @@ public class OrderService(
             throw new BalanceManagementException("Failed to complete order", ex);
         }
     }
-    
+
     public async Task<Order?> GetOrderByIdAsync(string id)
     {
         return await orderRepository.GetByIdAsync(id);

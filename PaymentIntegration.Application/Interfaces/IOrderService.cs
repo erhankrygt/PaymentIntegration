@@ -4,8 +4,7 @@ namespace PaymentIntegration.Application.Interfaces;
 
 public interface IOrderService
 {
-    Task<List<Product>> GetAvailableProductsAsync();
-    Task<Order> CreateOrderAsync(List<OrderItem> items);
+    Task<List<Product>?> GetAvailableProductsAsync();
+    Task<Order> CreateOrderAsync(decimal amount, string orderId);
     Task<Order> CompleteOrderAsync(string orderId);
-    Task<Order?> GetOrderByIdAsync(string id);
 }

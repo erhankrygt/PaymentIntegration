@@ -1,25 +1,24 @@
 using System.Net.Http.Json;
 using Microsoft.Extensions.Logging;
 using PaymentIntegration.Domain.Exceptions;
-using PaymentIntegration.Domain.Models;
+using PaymentIntegration.Infrastructure.Clients.BalanceManagement.Models;
 using Polly;
 using Polly.Retry;
 
 
 namespace PaymentIntegration.Infrastructure.Clients.BalanceManagement;
 
-public abstract class BalanceManagementClient : IBalanceManagementClient
+public class BalanceManagementClient : IBalanceManagementClient
 {
     private readonly HttpClient _httpClient;
     private readonly ILogger<BalanceManagementClient> _logger;
     private readonly AsyncRetryPolicy _retryPolicy;
 
-    protected BalanceManagementClient(HttpClient httpClient, ILogger<BalanceManagementClient> logger)
+    public BalanceManagementClient(HttpClient httpClient, ILogger<BalanceManagementClient> logger)
     {
         _httpClient = httpClient;
         _logger = logger;
 
-        // Configure retry policy with exponential backoff
         _retryPolicy = Policy
             .Handle<HttpRequestException>()
             .Or<TaskCanceledException>()
@@ -33,35 +32,29 @@ public abstract class BalanceManagementClient : IBalanceManagementClient
                 });
     }
 
-    public async Task<List<Product>> GetProductsAsync()
+    public async Task<GetProductResponse?> GetProductsAsync()
     {
         return await _retryPolicy.ExecuteAsync(async () =>
         {
             var response = await _httpClient.GetAsync("/products");
             response.EnsureSuccessStatusCode();
 
-            var content = await response.Content.ReadFromJsonAsync<BalanceManagementProductsResponse>();
-            return content?.Products.Select(p => new Product
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Price = p.Price,
-                Stock = p.Stock
-            }).ToList() ?? new List<Product>();
+            var content = await response.Content.ReadFromJsonAsync<GetProductResponse>();
+            return content;
         });
     }
 
-    public async Task<string> CreatePreorderAsync(decimal amount)
+    public async Task<CreatePreorderResponse> CreatePreorderAsync(decimal amount, string orderId)
     {
         return await _retryPolicy.ExecuteAsync(async () =>
         {
-            var request = new { amount };
+            var request = new { amount, orderId };
             var response = await _httpClient.PostAsJsonAsync("/preorder", request);
             response.EnsureSuccessStatusCode();
 
-            var result = await response.Content.ReadFromJsonAsync<BalanceManagementPreorderResponse>();
-            return result?.TransactionId ?? throw new BalanceManagementException("Failed to get transaction ID");
-        });
+            var result = await response.Content.ReadFromJsonAsync<CreatePreorderResponse>();
+            return result;
+        }) ?? throw new BalanceManagementException("Failed to create preorder");
     }
 
     public async Task CompleteOrderAsync(string transactionId)
@@ -73,10 +66,4 @@ public abstract class BalanceManagementClient : IBalanceManagementClient
             response.EnsureSuccessStatusCode();
         });
     }
-
-    private record BalanceManagementProductsResponse(List<BalanceManagementProduct> Products);
-
-    private record BalanceManagementProduct(string Id, string Name, decimal Price, int Stock);
-
-    private record BalanceManagementPreorderResponse(string TransactionId);
 }

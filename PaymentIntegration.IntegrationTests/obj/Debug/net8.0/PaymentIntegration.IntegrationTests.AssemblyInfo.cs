@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PaymentIntegration.IntegrationTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e2da5ed44e5bbe1ad70ee3308d1fa42f538e9a1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+88b8bed1f02c3b148d982b292f52634664d357bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("PaymentIntegration.IntegrationTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PaymentIntegration.IntegrationTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

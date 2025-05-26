@@ -1,10 +1,10 @@
-using PaymentIntegration.Domain.Models;
+using PaymentIntegration.Infrastructure.Clients.BalanceManagement.Models;
 
 namespace PaymentIntegration.Infrastructure.Clients.BalanceManagement;
 
 public interface IBalanceManagementClient
 {
-    Task<List<Product>> GetProductsAsync();
-    Task<string> CreatePreorderAsync(decimal amount);
+    Task<GetProductResponse?> GetProductsAsync();
+    Task<CreatePreorderResponse> CreatePreorderAsync(decimal amount, string orderId);
     Task CompleteOrderAsync(string transactionId);
 }
