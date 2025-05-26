@@ -15,11 +15,6 @@ public class OrderRepository : IOrderRepository
         return Task.FromResult(order);
     }
 
-    public Task<List<Order>> GetAllAsync()
-    {
-        return Task.FromResult(_orders.Values.ToList());
-    }
-
     public Task<Order> AddAsync(Order order)
     {
         order.CreatedAt = DateTime.UtcNow;
